@@ -1,0 +1,25 @@
+<textarea id="input" style="width: 100%; height: 300px;"></textarea>
+<p id="result"></p>
+<button onclick="count()">Count</button>
+<script>
+    function count() {
+        var data = document.querySelector("#input");
+        if (!data || !data.value) {
+            
+            return alert("empty!");
+        }
+
+        let result = data.value.split('\n').reduce((prev, cur) => {
+            var index = cur.indexOf('h - ');
+            prev += parseFloat(cur.substring(0, index));
+            return prev;
+        }, 0);
+
+        document.querySelector("#result").innerHTML = result;
+    }
+	
+	window.addEventListener("load", function() {
+		
+		document.querySelector("#input").addEventListener("keyup", count);
+	})
+</script>
