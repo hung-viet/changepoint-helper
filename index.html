@@ -11,7 +11,7 @@
 
         let result = data.value.split('\n').reduce((prev, cur) => {
             var index = cur.indexOf('h - ');
-            prev += parseFloat(cur.substring(0, index));
+            prev += (parseFloat(cur.substring(0, index)) || 0);
             return prev;
         }, 0);
 
